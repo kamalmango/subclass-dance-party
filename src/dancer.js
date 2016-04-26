@@ -1,4 +1,5 @@
 // Creates and returns a new dancer object that can step
+/*
 var makeDancer = function(top, left, timeBetweenSteps) {
 
   var dancer = {};
@@ -9,6 +10,7 @@ var makeDancer = function(top, left, timeBetweenSteps) {
   dancer.step = function() {
     // the basic dancer doesn't do anything interesting at all on each step,
     // it just schedules the next step
+
     setTimeout(dancer.step, timeBetweenSteps);
   };
   dancer.step();
@@ -30,3 +32,43 @@ var makeDancer = function(top, left, timeBetweenSteps) {
 
   return dancer;
 };
+*/
+
+
+var makeDancer = function(top, left, timeBetweenSteps, dancer) {
+
+  if (dancer === 'blinky') {
+    this.$node = $('<span class="dancer lineUp"></span>');
+  } else if (dancer === 'fat'){
+    console.log(this)
+    this.$node = $('<span class="fatDancer lineUp"></span>');
+  } else {
+    this.$node = $('<span class="skinnyDancer lineUp"></span>');
+  }
+  
+
+  this.timeBetweenSteps = timeBetweenSteps;
+  this.step();
+  this.setPosition(top, left);
+};
+
+makeDancer.prototype.step = function() {
+  //console.log(this.step);
+  var context = this;
+  setTimeout(function() {
+    context.step();
+  }, context.timeBetweenSteps);
+};
+
+makeDancer.prototype.setPosition = function(top, left) {
+  var styleSettings = {
+    top: top,
+    left: left
+  };
+  this.$node.css(styleSettings);
+};
+
+
+
+
+
