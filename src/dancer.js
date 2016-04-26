@@ -38,12 +38,11 @@ var makeDancer = function(top, left, timeBetweenSteps) {
 var makeDancer = function(top, left, timeBetweenSteps, dancer) {
 
   if (dancer === 'blinky') {
-    this.$node = $('<span class="dancer lineUp"></span>');
+    this.$node = $('<span class="dancer lineUp blinky"></span>');
   } else if (dancer === 'fat'){
-    console.log(this)
-    this.$node = $('<span class="fatDancer lineUp"></span>');
+    this.$node = $('<span class="fatDancer lineUp fat"></span>');
   } else {
-    this.$node = $('<span class="skinnyDancer lineUp"></span>');
+    this.$node = $('<span class="skinnyDancer lineUp skinny"></span>');
   }
   
 

@@ -10,17 +10,11 @@ makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;
 
 makeBlinkyDancer.prototype.step = function() {
   makeDancer.prototype.step.call(this);
-  this.$node.toggle();
+  var baloon = this.$node;
+  function runIt() {
+    baloon.animate({bottom:'+=100'}, 1000);
+    baloon.animate({bottom:'-=100'}, 1000, runIt);
+  }
 
+  runIt();
 };
-
-makeBlinkyDancer.prototype.lineup = function(top, left) {
-  var styleSettings = {
-    top: top,
-    left: left
-  };
-  this.$node.css(styleSettings);
-
-};
-
-//makeBlinkyDancer.prototype.oldStep = makeDancer.prototype.step;

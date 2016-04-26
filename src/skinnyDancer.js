@@ -8,13 +8,12 @@ makeSkinnyDancer.prototype.constructor = makeSkinnyDancer;
 
 makeSkinnyDancer.prototype.step = function() {
   makeDancer.prototype.step.call(this);
-  this.$node.toggle();
+  var baloon = this.$node;
+  function runIt() {
+    baloon.animate({bottom:'+=100'}, 1000);
+    baloon.animate({bottom:'-=100'}, 1000, runIt);
+  }
+
+  runIt();
 };
 
-makeSkinnyDancer.prototype.lineup = function(top, left) {
-  var styleSettings = {
-    top: top,
-    left: left
-  };
-  this.$node.css(styleSettings);
-};
