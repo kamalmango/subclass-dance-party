@@ -3,41 +3,74 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
   font-size: 18px;
+  background-image: url("../img/bg.jpg");
+  background-size: cover;
+  text-align: center;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
   text-decoration: none;
-  background-image: url("../img/bg.jpg");
-  background-size: cover;
+}
+
+a:hover {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+
 }
 .title, .addDancerButton{
-  padding:5px 12px;
-  float:right;
+  margin-top: 20px;
+  padding:5px 15px;
+  font-family: 'IM Fell DW Pica', serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-shadow: 0 0 10px #33cccc;
+/*  float:right;*/
 }
+.credits{
+  font-size: 10px;
+  margin-top: 5px;
+  padding:5px;
+}
+
 .topbar{
-  height:40px;
+  height:30px;
+  text-align: center;
+  margin-top: 20px;
   
 }
-.title{
-  background-color: none;
+.particles {
+  width: 100%;
+  height: 100%;
 }
 .dancer{
-  border:10px solid #FF6017;
-  border-radius:30px;
   position:absolute;
-  box-shadow:0 0 50px #FF0022,0 0 150px #FF9200;
+  width:90px;
 }
 .fatDancer{
-  border:10px solid #FF0022;
-  border-radius:30px;
   position:absolute;
-  box-shadow:0 0 50px #FF0022,0 0 150px #FF0022;
+  width:80px;
+
 }
 .skinnyDancer{
-  border:10px solid orange;
-  border-radius:30px;
   position:absolute;
-  box-shadow:0 0 50px #FF0022,0 0 150px #FFBF00;
+  width:50px;
+}
+
+.something{
+  width: 500px;
+}
+
+.lineUpButton {
+  font-family: 'IM Fell DW Pica', serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-shadow: 0 0 10px #33cccc;
+}
+
+.remove{
+  display:none;
 }

@@ -2,19 +2,6 @@ $(document).ready(function() {
   window.dancers = [];
 
   $('.addDancerButton').on('click', function(event) {
-    /* This function sets up the click handlers for the create-dancer
-     * buttons on dancefloor.html. You should only need to make one small change to it.
-     * As long as the "data-dancer-maker-function-name" attribute of a
-     * class="addDancerButton" DOM node matches one of the names of the
-     * maker functions available in the global scope, clicking that node
-     * will call the function to make the dancer.
-     */
-
-    /* dancerMakerFunctionName is a string which must match
-     * one of the dancer maker functions available in global scope.
-     * A new object of the given type will be created and added
-     * to the stage.
-     */
 
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
@@ -28,13 +15,28 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    for (var i = 0; i < window.dancers.length-1; i++) {
+      if ((Math.abs(window.dancers[i].position[0]-dancer.position[0]) <= 100) && (Math.abs(window.dancers[i].position[1]-dancer.position[1]) <= 100)) {
+        setTimeout(function() {
+          dancer.$node.addClass('something'); //something is a css class that is applied to the nodes that pop
+        }, 3000);
+      }
+    }
     window.dancers.push(dancer);
   }); 
-
 
   $('.lineUpButton').on('click', function(event) {
     for (var i = window.dancers.length - 1; i >= 0; i--) {
       $('.lineUp').css('top', '300px');
+      $('.something').css('display','none'); // makes the nodes that popped disapear when align is clicked
+      $('body').append(window.dancers[i]);
+    }
+  }); 
+  $('.unAlign').on('click', function(event) {
+    for (var i = window.dancers.length - 1; i >= 0; i--) {
+      window.dancers[i].position[0] = Math.random();
+      window.dancers[i].position[1] = Math.random();
+      //window.dancers[i].$node.removeClass('something');// makes the nodes that popped disapear when align is clicked
       $('body').append(window.dancers[i]);
     }
   }); 
