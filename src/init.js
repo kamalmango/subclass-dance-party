@@ -14,9 +14,9 @@ $(document).ready(function() {
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
-    $('.lineUp').mouseover(function(event) {
-      dancer.$node.toggle();
-    }); 
+    // $('.lineUp').mouseover(function(event) {
+    //   dancer.$node.toggle();
+    // }); 
 
 
     $('body').append(dancer.$node);
