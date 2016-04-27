@@ -14,6 +14,11 @@ $(document).ready(function() {
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
+    $('.lineUp').mouseover(function(event) {
+      dancer.$node.toggle();
+    }); 
+
+
     $('body').append(dancer.$node);
     for (var i = 0; i < window.dancers.length-1; i++) {
       if ((Math.abs(window.dancers[i].position[0]-dancer.position[0]) <= 100) && (Math.abs(window.dancers[i].position[1]-dancer.position[1]) <= 100)) {
@@ -32,13 +37,6 @@ $(document).ready(function() {
       $('body').append(window.dancers[i]);
     }
   }); 
-  $('.unAlign').on('click', function(event) {
-    for (var i = window.dancers.length - 1; i >= 0; i--) {
-      window.dancers[i].position[0] = Math.random();
-      window.dancers[i].position[1] = Math.random();
-      //window.dancers[i].$node.removeClass('something');// makes the nodes that popped disapear when align is clicked
-      $('body').append(window.dancers[i]);
-    }
-  }); 
+
 });
 
